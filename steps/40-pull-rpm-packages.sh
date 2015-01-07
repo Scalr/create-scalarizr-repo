@@ -18,6 +18,12 @@ for repo in ${CLONE_REPOS}; do
   fi
 
   for ver in ${RHEL_VERSIONS}; do
+
+    # At this time, stable has no RHEL 7 packages.
+    if [ "${repo}" = "stable" ] && [ "$ver" = 7 ]; then
+      continue
+    fi
+
     for arch in x86_64 i386; do
       cd "${LOCAL_REPO_ROOT}/${repo}/rpm/rhel/${ver}/${arch}"
       echo "## mirroring $ver/$arch"
