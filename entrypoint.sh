@@ -13,5 +13,6 @@ export SCALR_REPOCONFIG_CONF="${HERE}/config.sh"
 umask 002
 
 for script in "${HERE}/steps"/*; do
+  echo "Running step: '${script}'"
   $script
 done
