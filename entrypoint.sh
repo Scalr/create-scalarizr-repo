@@ -14,5 +14,11 @@ umask 002
 
 for script in "${HERE}/steps"/*; do
   echo "Running step: '${script}'"
-  $script
+  $script || {
+    echo "An error occured!"
+    exit 1
+  }
 done
+
+echo "DONE!"
+exit 0
