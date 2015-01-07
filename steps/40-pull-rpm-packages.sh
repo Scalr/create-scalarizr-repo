@@ -9,17 +9,19 @@ remote_base="${REMOTE_REPO_ROOT}/rpm"
 
 for repo in ${CLONE_REPOS}; do
   remote_repo_base="${remote_base}/${repo}/rhel"
+  extra_wget_opts=("--accept" "*.rpm")
 
   # Until February 2015, stable is still on builbot!
   if [ "${repo}" = "stable" ]; then
-    remote_repo_base="http://rpm-delayed.scalr.net/rpm/rhel/"
+    remote_repo_base="http://rpm-delayed.scalr.net/rpm/rhel"
+    extra_wget_opts+=("--reject" "scalarizr-0.*.rpm,scalarizr-*-0.*.rpm,scalarizr-*-1.*.rpm,scalarizr-*-2.?.*.rpm,scalr-upd-client-*.rpm")  # Exclude old packages
   fi
 
   for ver in ${RHEL_VERSIONS}; do
     for arch in x86_64 i386; do
       cd "${LOCAL_REPO_ROOT}/${repo}/rpm/rhel/${ver}/${arch}"
       echo "## mirroring $ver/$arch"
-      wget ${WGET_OPTS} --accept "*.rpm" "${remote_repo_base}/${ver}/${arch}/"
+      wget "${WGET_OPTS[@]}" "${extra_wget_opts[@]}" "${remote_repo_base}/${ver}/${arch}/"
       createrepo .
     done
   done
