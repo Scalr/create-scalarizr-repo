@@ -24,4 +24,11 @@ if [ "${FOUND}" = "0" ]; then
   exit 1
 fi
 
-service nginx reload
+if service nginx status; then
+  service nginx reload
+else
+  service nginx start
+fi
+
+# Is Nginx actually running?
+service nginx status
