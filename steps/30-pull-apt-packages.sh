@@ -5,16 +5,23 @@ set -o pipefail
 
 source "${SCALR_REPOCONFIG_CONF}"
 
-base_url="${REMOTE_REPO_ROOT}/apt-plain"
+remote_base="${REMOTE_REPO_ROOT}/apt-plain"
 
 for repo in $CLONE_REPOS; do
+  remote_repo="${remote_base}/${repo}/"
+
+  # Until February 2015, stable is still on builbot!
+  if [ "${repo}" = "stable" ]; then
+    remote_repo="http://apt-delayed.scalr.net/debian/scalr/"
+  fi
+
   echo "Cloning repo '$repo'"
 
   # Navigate to the appropriate repository
   cd "${LOCAL_REPO_ROOT}/${repo}/apt"
 
   # Pull latest packages from Scalr
-  wget ${WGET_OPTS} --accept "*.deb" "${base_url}/${repo}/"
+  wget ${WGET_OPTS} --accept "*.deb" "${remote_repo}"
 
   # Create a release file
   cat > Release << EOC
