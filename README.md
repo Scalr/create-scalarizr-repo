@@ -11,6 +11,9 @@ Usage
     `git clone https://github.com/Scalr/create-scalarizr-repo.git`
   + Run the `entrypoint.sh` script.
 
+Whenever you'd like to refresh your repositories, just run `entrypoint.sh`
+again.
+
 
 Reporting Issues
 ----------------
