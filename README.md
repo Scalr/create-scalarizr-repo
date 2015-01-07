@@ -8,7 +8,7 @@ Usage
 -----
 
   + Clone this repository **on a fresh new host**.
-  + Run `./entrypoint.sh`
+  + Run the `entrypoint.sh` script.
 
 
 Reporting Issues
