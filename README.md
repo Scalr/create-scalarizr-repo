@@ -7,7 +7,8 @@ repositories.
 Usage
 -----
 
-  + Clone this repository **on a fresh new host**.
+  + Clone this repository **on a fresh new host**:
+    `git clone https://github.com/Scalr/create-scalarizr-repo.git`
   + Run the `entrypoint.sh` script.
 
 
