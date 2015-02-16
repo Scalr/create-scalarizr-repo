@@ -7,7 +7,7 @@ NGINX_DEFAULT_CONFIG_LOCATIONS="/etc/nginx/sites-available/default /etc/nginx/co
 CLONE_REPOS="stable latest"
 
 LOCAL_REPO_ROOT="/var/www"
-REMOTE_REPO_ROOT="http://stridercd.scalr-labs.com"
+REMOTE_REPO_ROOT="http://repo.scalr.net"
 
 RHEL_VERSIONS="5 6 7"
 RHEL_5_ALIASES="5Server"

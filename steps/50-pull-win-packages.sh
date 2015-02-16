@@ -6,7 +6,6 @@ set -o pipefail
 source "${SCALR_REPOCONFIG_CONF}"
 
 # Overriden for Windows for now
-REMOTE_REPO_ROOT="http://buildbot.scalr-labs.com"
 remote_base="${REMOTE_REPO_ROOT}/win"
 
 for repo in $CLONE_REPOS; do
