@@ -1,13 +1,13 @@
 # Configurable
-ORG_NAME="Your company name"
+: ${ORG_NAME:="Your company name"}
+: ${LOCAL_REPO_ROOT:="/var/www"}
 
-NGINX_USER_CANDIDATES="nginx www-data"
-NGINX_CONFIG_LOCATION="/etc/nginx/nginx.conf"
+: ${NGINX_USER_CANDIDATES:="nginx www-data"}
+: ${NGINX_CONFIG_LOCATION:="/etc/nginx/nginx.conf"}
 
 # Should not be touched
 CLONE_REPOS="stable latest"
 
-LOCAL_REPO_ROOT="/var/www"
 REMOTE_REPO_ROOT="http://repo.scalr.net"
 
 RHEL_VERSIONS="5 6 7"

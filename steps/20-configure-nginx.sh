@@ -23,6 +23,7 @@ if [ -f "${NGINX_CONFIG_LOCATION}" ]; then
 
   echo "Nginx user is: ${NGINX_USER}"
   cp "${SCALR_REPOCONFIG_ROOT}/files/nginx.conf" "${NGINX_CONFIG_LOCATION}"
+  sed -i "s|__LOCAL_REPO_ROOT__|${LOCAL_REPO_ROOT}|g" "${NGINX_CONFIG_LOCATION}"
   sed -i "s/__NGINX_USER__/${NGINX_USER}/g"  "${NGINX_CONFIG_LOCATION}"
 else
   echo "Unable to find nginx.conf"
