@@ -1,6 +1,7 @@
 # Configurable
+DEFAULT_REPO_ROOT="/var/www"
 : ${ORG_NAME:="Your company name"}
-: ${LOCAL_REPO_ROOT:="/var/www"}
+: ${LOCAL_REPO_ROOT:="$DEFAULT_REPO_ROOT"}
 
 : ${NGINX_USER_CANDIDATES:="nginx www-data"}
 : ${NGINX_CONFIG_LOCATION:="/etc/nginx/nginx.conf"}
