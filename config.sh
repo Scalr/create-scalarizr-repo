@@ -1,7 +1,8 @@
 # Configurable
 ORG_NAME="Your company name"
 
-NGINX_DEFAULT_CONFIG_LOCATIONS="/etc/nginx/sites-available/default /etc/nginx/conf.d/default.conf"
+NGINX_USER_CANDIDATES="nginx www-data"
+NGINX_CONFIG_LOCATION="/etc/nginx/nginx.conf"
 
 # Should not be touched
 CLONE_REPOS="stable latest"

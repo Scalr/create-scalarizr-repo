@@ -6,21 +6,27 @@ set -o pipefail
 
 source "${SCALR_REPOCONFIG_CONF}"
 
-FOUND="0"
+NGINX_USER=""
 
-for configFile in ${NGINX_DEFAULT_CONFIG_LOCATIONS}; do
-  if [ -f "$configFile" ]; then
-    echo "Found default nginx configuration: '$configFile'. Overwriting."
-    cp "${SCALR_REPOCONFIG_ROOT}/files/nginx-site" "$configFile"
-    FOUND="1"
-    break
+if [ -f "${NGINX_CONFIG_LOCATION}" ]; then
+  for user in ${NGINX_USER_CANDIDATES}; do
+    if getent passwd "${user}" >/dev/null; then
+      NGINX_USER="${user}"
+      break
+    fi
+  done
+
+  if [ -z "${NGINX_USER}" ]; then
+    echo "Unale to find Nginx user. Add yours to NGINX_USER_CANDIDATES in '${SCALR_REPOCONFIG_ROOT}/config.sh'"
+    exit 1
   fi
-done
 
-if [ "${FOUND}" = "0" ]; then
-  echo "Unable to find Nginx configuration."
-  echo "Add the path to your Nginx default configuration in '${SCALR_REPOCONFIG_ROOT}/config.sh'."
-  echo "The default configuration file MUST exist."
+  echo "Nginx user is: ${NGINX_USER}"
+  cp "${SCALR_REPOCONFIG_ROOT}/files/nginx.conf" "${NGINX_CONFIG_LOCATION}"
+  sed -i "s/__NGINX_USER__/${NGINX_USER}/g"  "${NGINX_CONFIG_LOCATION}"
+else
+  echo "Unable to find nginx.conf"
+  echo "Add the path to yours in NGINX_CONFIG_LOCATION in '${SCALR_REPOCONFIG_ROOT}/config.sh'"
   exit 1
 fi
 
