@@ -8,6 +8,7 @@ set -o pipefail
 
 if which apt-get; then
   echo "Found apt-get"
+  apt-get update
   apt-get install -q -y nginx createrepo dpkg-dev wget
 elif which yum; then
   echo "Found yum"
