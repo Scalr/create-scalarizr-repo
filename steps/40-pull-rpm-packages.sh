@@ -16,7 +16,7 @@ for repo in ${CLONE_REPOS}; do
   done
   
   cd ${current_repo_root}
-  for alias in "${RHEL_5_ALIASES} ${RHEL_6_ALIASES} ${RHEL_7_ALIASES}"; do
+  for alias in ${RHEL_5_ALIASES} ${RHEL_6_ALIASES} ${RHEL_7_ALIASES}; do
     ln -s latest ${alias}
   done
 done
