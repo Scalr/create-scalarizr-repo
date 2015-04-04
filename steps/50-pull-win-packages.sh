@@ -9,7 +9,6 @@ for repo in $CLONE_REPOS; do
   echo "Cloning repo '$repo'"
 
   cd "${LOCAL_REPO_ROOT}/${repo}/win/x86_64"
-
   wget_mirror "${REMOTE_REPO_ROOT}/win/${repo}/x86_64/"
 
 done

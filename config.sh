@@ -17,9 +17,10 @@ RHEL_7_ALIASES="7 7Server 7.0"
 
 
 function wget_mirror() {
-	wget -m --no-parent --timestamping --no-verbose --execute robots=off $@
-	mirror_root=$(echo $1 | sed 's|https\?://||')
-	cp -r ${mirror_root}/* . 	
+    rm -rf ./*
+	wget --recursive --no-parent --timestamping --no-verbose --execute robots=off $@
+	mirror_root=$(echo "${@: -1}" | sed 's|https\?://||')
+	cp -a ${mirror_root}/* . 	
 	rm -rf ${mirror_root:0:$(expr index $mirror_root /)-1}
 	find . -name 'index.html*' | xargs rm -f
 }
