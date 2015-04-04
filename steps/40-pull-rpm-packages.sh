@@ -12,7 +12,7 @@ for repo in ${CLONE_REPOS}; do
   # Mirror a single copy of EL5 packages and create aliases
   for arch in x86_64 i386; do
     cd "${current_repo_root}/latest/${arch}"
-    wget "${WGET_OPTS[@]}" "${REMOTE_REPO_ROOT}/rpm/${repo}/rhel/latest/${arch}"
+    wget_mirror "${REMOTE_REPO_ROOT}/rpm/${repo}/rhel/latest/${arch}/"
   done
   
   cd ${current_repo_root}

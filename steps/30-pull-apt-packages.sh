@@ -12,6 +12,6 @@ for repo in ${CLONE_REPOS}; do
   cd "${LOCAL_REPO_ROOT}/${repo}/apt"
 
   # Pull latest packages from Scalr (without gpg signature)
-  wget_opts_reject_gpg="--reject='*.gpg' --reject=InRelease"
-  wget "${WGET_OPTS[@]} ${wget_opts_reject_gpg} ${REMOTE_REPO_ROOT}/apt-plain/${repo}/"
+  opts_reject_gpg="--reject='*.gpg' --reject=InRelease"
+  wget_mirror ${opts_reject_gpg} "${REMOTE_REPO_ROOT}/apt-plain/${repo}/"
 done
