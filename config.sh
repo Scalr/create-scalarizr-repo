@@ -9,7 +9,7 @@ DEFAULT_REPO_ROOT="/var/www"
 # Should not be touched
 CLONE_REPOS="stable latest"
 
-REMOTE_REPO_ROOT="http://repo.scalr.net"
+REMOTE_REPO_ROOT="http://snapshot.repo.scalr.net/scalarizr/current"
 
 RHEL_VERSIONS="5 6 7"
 RHEL_5_ALIASES="5Server"
