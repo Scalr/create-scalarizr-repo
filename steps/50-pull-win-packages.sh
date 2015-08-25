@@ -8,7 +8,7 @@ source "${SCALR_REPOCONFIG_CONF}"
 # Overriden for Windows for now
 remote_base="${REMOTE_REPO_ROOT}/win"
 
-for repo in $CLONE_REPOS; do
+for repo in latest; do
   cd "${LOCAL_REPO_ROOT}/${repo}/win/x86_64"
 
   wget "${WGET_OPTS[@]}" --accept "*.exe" "${remote_base}/${repo}/x86_64/"
