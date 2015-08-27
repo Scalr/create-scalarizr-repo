@@ -12,8 +12,7 @@ for repo in ${CLONE_REPOS}; do
   mkdir -p "${LOCAL_REPO_ROOT}/${repo}/apt"
 
   # Windows setup
-  mkdir -p "${LOCAL_REPO_ROOT}/${repo}/win/x86_64"
-  mkdir -p "${LOCAL_REPO_ROOT}/${repo}/msi"
+  mkdir -p "${LOCAL_REPO_ROOT}/${repo}/win"
 
   # RHEL setup (all repos are aliases of "latest")
   mkdir -p "${LOCAL_REPO_ROOT}/${repo}"/rpm/rhel/latest/{x86_64,i386}
