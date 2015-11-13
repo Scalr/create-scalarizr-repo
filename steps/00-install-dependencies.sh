@@ -8,7 +8,7 @@ set -o pipefail
 
 if which apt-get; then
   echo "Found apt-get"
-  apt-get install -q -y nginx dpkg-dev wget
+  apt-get install -q -y -o Dpkg::Options::=--force-confold nginx dpkg-dev wget
 elif which yum; then
   echo "Found yum"
 
