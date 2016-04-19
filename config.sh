@@ -7,7 +7,7 @@ DEFAULT_REPO_ROOT="/var/www"
 : ${NGINX_CONFIG_LOCATION:="/etc/nginx/nginx.conf"}
 
 # Should not be touched
-CLONE_REPOS="stable latest"
+CLONE_REPOS="stable beta"
 
 REMOTE_REPO_ROOT="http://snapshot.repo.scalr.net/scalarizr/current"
 

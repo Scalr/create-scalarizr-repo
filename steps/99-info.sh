@@ -32,9 +32,9 @@ app[:configuration] = {
           :win_repo_url => "http://#{repo_host}/stable/win",
         },
         :latest => {
-          :deb_repo_url => "http://#{repo_host}/latest/apt /",
-          :rpm_repo_url => "http://#{repo_host}/latest/rpm/rhel/$releasever/$basearch",
-          :win_repo_url => "http://#{repo_host}/latest/win",
+          :deb_repo_url => "http://#{repo_host}/beta/apt /",
+          :rpm_repo_url => "http://#{repo_host}/beta/rpm/rhel/$releasever/$basearch",
+          :win_repo_url => "http://#{repo_host}/beta/win",
         },
       },
     },
