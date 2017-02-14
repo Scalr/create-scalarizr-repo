@@ -14,8 +14,10 @@ for repo in ${CLONE_REPOS}; do
   # Windows setup
   mkdir -p "${LOCAL_REPO_ROOT}/${repo}/win"
 
-  # RHEL setup (all repos are aliases of "latest")
+  # RHEL setup (all repos are aliases of "latest"
   mkdir -p "${LOCAL_REPO_ROOT}/${repo}"/rpm/rhel/latest
+  # ... except deprecated EL 5)
+  mkdir -p "${LOCAL_REPO_ROOT}/${repo}"/rpm/rhel/5
 done
 
 # Remove index files
